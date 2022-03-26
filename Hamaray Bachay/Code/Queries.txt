@@ -1,0 +1,229 @@
+QUERY 1:
+
+CREATE PROCEDURE FindStudents() SELECT `St_ID`,`first_name`,`last_name` FROM `student` END
+
+<--------------------------------->
+
+QUERY 2:
+CREATE PROCEDURE FindM_Spouse()
+SELECT `Mother_Name`,`Father_Name` FROM `person`
+WHERE `Father_Name` IS NOT NULL
+END
+
+<--------------------------------->
+
+
+QUERY 3:
+
+CREATE PROCEDURE GuardianList()
+SELECT
+    COUNT(p.Guardian_CNIC) AS GuardianList,
+    p.Guardian_Relation,
+    s.first_name,
+    s.last_name
+FROM
+    person p,
+    student s
+WHERE
+    p.`Sr_No.` = s.St_ID
+GROUP BY p.Guardian_Relation
+
+<---------------------------------->
+
+QUERY 4:
+
+CREATE PROCEDURE ShowParents_Children()
+SELECT
+    p.Father_Name, p.Mother_Name, s.first_name, s.last_name
+FROM
+    student s, person p
+WHERE
+    p.St_ID = s.St_ID
+
+<--------------------------------->
+QUERY 5:
+
+
+CREATE PROCEDURE studentSiblings()
+SELECT
+    COUNT(s.St_ID),
+    s.P_no,
+    c.Class_ID
+FROM
+    student s,
+    person p,
+    class_section c
+WHERE
+    p.P_no = s.P_no
+    AND
+    s.St_ID = c.St_ID
+GROUP BY
+	c.Class_ID;
+    END
+
+
+<-------------------------------------------->
+
+Query 6:
+
+CREATE PROCEDURE ShowNewClass()
+SELECT
+    c.St_ID,
+    c.time_span,
+    c.new_admission,
+    c.class_assigned,
+    s.first_name,
+    s.last_name
+FROM
+    `class_section` c,
+    `student` s
+WHERE
+    time_span = '14-8-2021' AND class_assigned = 'new' AND c.St_ID = s.St_ID;
+    END
+
+<-------------------------------------------->
+
+Query 7:
+
+CREATE PROCEDURE newStudent(IN time_span varchar(100), IN new_admission varchar(100))
+SELECT s.first_name, s.last_name FROM student s, class_section c WHERE c.St_ID = s.St_ID AND 	c.time_span = time_span AND c.new_admission = new_admission;
+END
+
+
+<-------------------------------------------->
+
+
+QUERY 8:
+
+CREATE PROCEDURE newParents()
+SELECT DISTINCT
+    p.Father_Name,
+    p.Mother_Name,
+    s.P_no,
+    s.first_name,
+    s.last_name
+FROM
+    person p,
+    student s,
+    class_section c
+WHERE
+	p.P_no = s.P_no
+    AND
+    c.time_span = '10-5-2019'
+    AND
+    p.new_parent = 'new';
+    END
+
+
+QUERY 9:
+
+CREATE PROCEDURE ShowP_Introducers()
+SELECT DISTINCT
+    DATE_FORMAT(FROM_DAYS(DATEDIFF(CURDATE(),s.date_of_birth)), '%Y')+0 AS "age",
+    s.P_no,
+    s.first_name,
+    s.last_name,
+    c.Class_ID,
+    co.Course_name,
+    p.`Father_Name`,
+    p.Mother_Name
+FROM
+    student s,
+    person p,
+    class_section c,
+    course co
+WHERE
+    p.P_no = s.P_no
+    AND
+    s.St_ID = c.St_ID
+    AND
+    DATE_FORMAT(FROM_DAYS(DATEDIFF(CURDATE(),s.date_of_birth)), '%Y')+0 < 5
+    AND 
+    co.St_ID = s.St_ID
+GROUP BY
+	c.Class_ID;
+    END
+
+<------------------------------------------->
+
+QUERY 12:
+
+SELECT
+    c.Class_ID,
+    COUNT(S.St_ID) AS NoOfStudents
+    
+FROM
+    student s,
+    class_section c,
+    person p
+    
+WHERE
+    p.P_no = s.P_no AND s.St_ID = c.St_ID AND s.St_gender IN(
+    SELECT
+        s.St_gender
+    FROM
+        student s
+    WHERE
+        s.St_gender = 'Female' OR s.St_gender = 'Male'
+)
+
+GROUP BY
+    c.Class_ID
+
+<-------------------------------------------->
+
+QUERY 13:
+
+CREATE TRIGGER inactiveStudents
+AFTER INSERT
+ON student FOR EACH ROW
+UPDATE student SET dormant = dormant +1
+END
+
+SELECT
+    s.St_ID,
+    s.first_name,
+    s.last_name,
+    s.dormant
+FROM
+    student s
+    
+<-------------------------------------------->
+
+QUERY 14:
+
+SELECT
+    p.P_no,
+    p.Father_Name,
+    p.Mother_Name,
+    p.Guardian_Name,
+    p.Father_CNIC,
+    p.Mother_CNIC,
+    p.Guardian_CNIC,
+    s.St_ID,
+    s.first_name,
+    s.last_name,
+    s.St_gender
+FROM
+    student s,
+    person p
+WHERE 
+	s.P_no = P.P_no
+
+
+QUERY 15:
+SELECT
+    p.P_no,
+    s.St_ID,
+    s.first_name,
+    s.last_name,
+    c.Class_ID
+    
+FROM
+    student s,
+    class_section c,
+    person p
+    
+WHERE
+    p.P_no = s.P_no AND s.St_ID = c.St_ID
+ORDER BY p.P_no ASC

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {margin:0;}
+.a1:link, .a1:visited {
+  background-color: #ee6c4d;
+  color: white;
+  border: 2px solid #ee6c4d;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.a1:hover, .a1:active {
+  background-color: #223946;
+  color: white;
+}
+
+ul {
+    display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#ee6c4d !important;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+}
+.h1{
+    height: auto;
+    text-align: center;
+    color:#ee6c4d;
+    font-size: 25px;
+
+}
+.h2{
+    height: auto;
+    text-align:center;
+    color: #ee6c4d;
+    font-size: 18px;
+}
+
+li a{
+  float: left;
+}
+
+li a:hover(.active) {
+  
+  background-color: #223946;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #223946;
+}
+
+.active{
+  background-color: #ee6c4d;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-style:initial;
+  font:bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color:floralwhite;
+}
+
+img { 
+    filter:contrast(32%);
+  padding-top: 46px;
+  max-width: 100%;
+  
+}
+.container1 {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.column:hover .image {
+  opacity: 0.3;
+}
+
+.column:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: transparent;
+  color: white;
+  font-size: 36px;
+  padding: 16px 32px;
+}
+.column {
+  float: left;
+  position: relative;
+  width: 32.53%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 200px) {
+  .column,.text.middle,.row,.column {
+    width: 50%;
+    font-size: 10px;
+    position: relative;
+
+  }
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class = "a1" href="Mainpage.html">Home</a></li>
+  <li><a class = "a1" href="Register.html">Register</a></li>
+  <li><a class = "a1" href="Class.html">Course</a></li>
+  <li><a class = "a1" href="Signup.html">LogOut</a></li>
+</ul>
+
+
+<div class="container" style="background-color:#223946;height:1500px;">
+    <img src="School.jpg" class = "img-fluid" alt = "Responsive image" width="1500" height="600">
+    <div class="center">
+        <h1>
+            HAMAREY BACHCHEY IS AN NGO WHICH PROVIDES EDUCATION FOR CHILDREN
+        </h1>
+        
+    </div>
+    <div class = "h1">
+        <h1>
+            What We can Do
+        </h1>
+    </div>
+    <div class = "h2">
+        <h1>
+            Teach and Educate Your Child With Our Expert and Qualified Teachers
+        </h1>
+        <h2>
+            Register Your Child Now Because Its Now and Never!
+        </h2>
+        <a class = "a1" href="Register.html" target="_blank">Register Now!</a>
+
+        <h2>
+          After Registering Enroll Your Child In Our Designated Classes!
+      </h2>
+      <div class="row">
+        <div class="column">
+          <img src="class1.jpg" alt="Snow" class= "image" style="width:100%">
+          <div class="middle">
+            <div class="text">Class 1 (Ranging From Years 2-5)
+            </div>
+            <a class = "a1" href="Class.html" target="_blank">Enroll Now!</a>
+          </div>
+        </div>
+        <div class="column">
+          <img src="class2.jpg" alt="Forest" class= "image" style="width:100%">
+          <div class="middle">
+            <div class="text">Class 2 (Ranging From Years 6-9)
+              
+            </div>
+            <a class = "a1" href="Class.html" target="_blank">Enroll Now!</a>
+          </div>
+        </div>
+        <div class="column">
+          <img src="class3.jpg" alt="Mountains" class= "image" style="width:100%">
+          <div class="middle">
+            <div class="text">Class 3 (Ranging From Years 10-14)
+              
+            </div>
+            <a class = "a1" href="Class.html" target="_blank">Enroll Now!</a>
+          </div>
+        </div>
+
+      </div>
+      <h2>
+            If Parents Are Absent Then Click Here for The Form!
+        </h2>
+        <a class = "a1" href="Guardian.html" target="_blank">Get Accompany Form!</a>
+    </div>
+
+
+  </div>
+
+
+
+</body>
+</html>

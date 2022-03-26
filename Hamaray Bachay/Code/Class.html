@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+  padding: 0;  
+  margin: 0;  
+  
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  
+}
+.radio{
+  font-size: 30px;
+  
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #ee6c4d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+
+input[type=submit]:hover {
+  background-color: #ee6c4d;
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color: #223946;
+  padding: 20px;
+  color:#ee6c4d;
+}
+.hel{
+    font-size: 48px;
+}
+
+.col-25 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.col-76 {
+  float: left;
+  width: 65%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: inherit;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75,.col-76, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    padding-left: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class = "hel">Hamaray Bachchey Class Accompanying Form</h2>
+    <br>
+    <br>
+<h2 style = "text-align: center;font-size: 40px;">Student's Class Form:</h2>
+  <form action = "http://localhost/Course.php" method="POST">
+    <h2 style = "text-align: left;font-size: 30px;">Student's Information</h2>
+
+  <br>
+  <div class="row">
+    <div class="col-25">
+      <label for="sf">Student's First Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="sf" name="sf" placeholder="Student's First Name ..">
+    </div>
+    <div class="row">
+        <div class="col-25" style = "padding-left: 30px;">
+          <label for="sl">Student's Last Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="sl" name="sl" placeholder="Student's Last Name ..">
+        </div>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-25">
+      <label for="sg">Student's Gender</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="sg" name="sg" placeholder="Student's Gender ..">
+    </div>
+    <div class="row">
+        <div class="col-25" style = "padding-left: 30px;">
+          <label for="sdob">Student's Date Of Birth</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="sdob" name="sdob" placeholder="Student's Date Of Birth ..">
+        </div>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-25">
+      <label for="sdob">Mother's CNIC</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="mcnic" name="mcnic" placeholder="Mother's CNIC..">
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="sdob" style="padding-left: 30px;">OR Guardian's CNIC</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="gcnic" name="gcnic" placeholder="Guardian's CNIC..">
+      </div>
+    </div>
+  </div>
+
+  
+
+  <h2 style = "text-align: left;font-size: 30px;padding-top: 30px;">Course Information</h2>
+  <br>
+  
+
+<div>
+  <label for="cars" style = "float: left;font-size: 20px;">Choose Any One Subject For the Enrolled Course:</label>
+  <select class = "col-25" name="sub">
+    <option value="English">English</option>
+    <option value="Visual Arts">Visual Arts</option>
+    <option value="Urdu"> Urdu</option>
+    <option value="Science">Science</option>
+    <option value="Computer">Computer</option>
+    <option value="History">History</option>
+  </select>
+  
+</div>
+<br>
+<br>
+<br>
+  <div class="row" >
+    <input type="submit" value="submit">
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
